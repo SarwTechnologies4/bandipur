@@ -1,0 +1,682 @@
+/* Main Layout Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    padding: 0 15px;
+    flex: 1 0 0%;
+}
+
+/* Hall Details Styles */
+.hallDetailsGrid {
+    margin-bottom: 45px;
+}
+
+.detailCard {
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.detailTitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.detailValue {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+}
+
+.seatingCard {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fff;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.seatingCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #BCAB6E;
+}
+
+.seatingHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.seatingIcon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seatingIcon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.seatingTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.seatingCapacity {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Hall Enquiry Card Styles */
+.hallEnquiryCard {
+    background: #f8f6f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.enquiryCardContent {
+    background: #f8f6f0 !important;
+    padding: 30px;
+}
+
+.enquiryTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.hallInfoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.infoLabel {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.infoValue {
+    font-size: 1rem;
+    color: #BCAB6E;
+    font-weight: 500;
+}
+
+.amenitiesTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.amenitiesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.amenityItem {
+    margin-bottom: 0.75rem;
+}
+
+.amenityIcon {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+.amenityIconImg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.amenityName {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.themeBg {
+    background-color: #BCAB6E;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.themeBg:hover {
+    background-color: #a89659;
+    transform: translateY(-1px);
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal {
+    background: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+.modalHeader {
+    background: linear-gradient(135deg, #BCAB6E 0%, #a89659 100%);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.modalTitleSection {
+    flex: 1;
+}
+
+.modalTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: white;
+}
+
+.modalSubtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+    font-weight: 400;
+}
+
+.modalCloseBtn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.modalCloseBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.bookingForm {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.formSection {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.formSectionSticky {
+    position: sticky;
+    padding: 20px;
+    top: 0;
+    background: white;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid #BCAB6E;
+}
+
+.sectionHeader {
+    margin-bottom: 25px;
+}
+
+.sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.sectionDivider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #BCAB6E, #a89659);
+    border-radius: 2px;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.formGrid3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLabel {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.required {
+    color: #dc2626;
+    font-size: 0.875rem;
+}
+
+.formInput {
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #fdfdfd;
+    color: black;
+    height: 38px;
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: #BCAB6E;
+    box-shadow: 0 0 0 3px rgba(188, 171, 110, 0.1);
+}
+
+.formInput::placeholder {
+    color: #9ca3af;
+}
+
+.formSelect {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 48px;
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.datePickerWrapper {
+    position: relative;
+}
+
+.dateInput {
+    width: 100%;
+}
+
+.menuOptions {
+    margin-bottom: 16px;
+}
+
+.menuCard {
+    border: 2px solid #f3f4f6;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+}
+
+.menuCard:hover {
+    border-color: #BCAB6E;
+    box-shadow: 0 4px 12px rgba(188, 171, 110, 0.1);
+}
+
+.menuHeader {
+    padding: 20px;
+    background: #fafafa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.menuHeader:hover {
+    background: #f5f5f5;
+}
+
+.menuInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menuImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.menuImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menuDetails {
+    flex: 1;
+}
+
+.menuName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 4px 0;
+}
+
+.menuDescription {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.menuToggle {
+    color: #BCAB6E;
+    font-size: 1.25rem;
+}
+
+.menuContent {
+    padding: 0 20px 20px 20px;
+    background: white;
+}
+
+.menuGroup {
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.menuGroupHeader {
+    padding: 16px;
+    background: #fafafa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+.menuGroupHeader:hover {
+    background: #f5f5f5;
+}
+
+.groupInfo {
+    flex: 1;
+}
+
+.groupName {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    margin: 0 0 4px 0;
+}
+
+.groupDescription {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.groupToggle {
+    color: #BCAB6E;
+}
+
+.formSubmitSection {
+    padding: 30px;
+    background: #fafafa;
+    border-top: 1px solid #f0f0f0;
+}
+
+.submitInfo {
+    margin-bottom: 20px;
+}
+
+.submitNote {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    padding: 16px;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #BCAB6E;
+}
+
+.submitBtn {
+    width: 100%;
+    background: linear-gradient(135deg, #BCAB6E 0%, #a89659 100%);
+    color: white;
+    border: none;
+    padding: 18px 24px;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(188, 171, 110, 0.3);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.submitArrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.submitBtn:hover .submitArrow {
+    transform: translateX(4px);
+}
+
+.loadingSpinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .detailTitle {
+        font-size: 1rem;
+    }
+    
+    .detailValue {
+        font-size: 1.1rem;
+    }
+    
+    .seatingCard {
+        padding: 1.25rem;
+    }
+
+    .enquiryTitle {
+        font-size: 1.25rem;
+    }
+    
+    .hallInfoItem {
+        margin-bottom: 0.75rem;
+    }
+    
+    .infoLabel {
+        font-size: 0.9rem;
+    }
+    
+    .infoValue {
+        font-size: 0.9rem;
+    }
+    
+    .amenitiesTitle {
+        font-size: 1.1rem;
+    }
+    
+    .amenityName {
+        font-size: 0.85rem;
+    }
+
+    /* Modal Responsive */
+    .modalOverlay {
+        padding: 10px;
+    }
+
+    .modal {
+        max-height: 95vh;
+    }
+
+    .modalHeader {
+        padding: 15px;
+    }
+
+    .modalTitle {
+        font-size: 1.5rem;
+    }
+
+    .modalSubtitle {
+        font-size: 0.875rem;
+    }
+
+    .formSection {
+        padding: 20px;
+    }
+
+    .formGrid,
+    .formGrid3 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .menuHeader {
+        padding: 16px;
+    }
+
+    .menuInfo {
+        gap: 12px;
+    }
+
+    .menuImage {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menuName {
+        font-size: 1rem;
+    }
+
+    .submitBtn {
+        padding: 16px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modalHeader {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .modalCloseBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .formSection {
+        padding: 16px;
+    }
+
+    .menuInfo {
+        flex-direction: column;
+        text-align: center;
+    }
+}

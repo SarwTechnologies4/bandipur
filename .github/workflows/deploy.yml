@@ -1,0 +1,82 @@
+name: Build and Deploy Nextjs App to VPS 
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./package/rovero
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create .env file for build (optional, if your build needs it)
+        run: |
+          echo "NEXT_PUBLIC_CMS_BASE_URL=${{ secrets.NEXT_PUBLIC_CMS_BASE_URL }}" >> .env
+          echo "NEXT_PUBLIC_CMS_TOKEN=${{ secrets.NEXT_PUBLIC_CMS_TOKEN }}" >> .env
+          echo "NEXT_PUBLIC_AGENT_ID=${{ secrets.NEXT_PUBLIC_AGENT_ID }}" >> .env
+          echo "NEXT_PUBLIC_FOODAPP_BASE_URL=${{ secrets.NEXT_PUBLIC_FOODAPP_BASE_URL }}" >> .env
+          echo "NEXT_PUBLIC_FOODAPP_API_KEY=${{ secrets.NEXT_PUBLIC_FOODAPP_API_KEY }}" >> .env
+          echo "NEXT_PUBLIC_CMS_SIDDHARTHA_TOKEN=${{ secrets.NEXT_PUBLIC_CMS_SIDDHARTHA_TOKEN }}" >> .env
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies and build with Nextjs
+        run: |
+          npm ci
+          npm run build
+
+      - name: Log in to private Docker registry
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login registry.siddharthahospitality.com -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build -t registry.siddharthahospitality.com/damauli:${{ github.sha }} .
+
+      - name: Push Docker image
+        run: docker push registry.siddharthahospitality.com/damauli:${{ github.sha }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH to VPS and deploy Docker container with env file
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            mkdir -p /root/envs
+
+            cat <<EOF > /root/envs/damauli.env
+            NEXT_PUBLIC_CMS_BASE_URL=${{ secrets.NEXT_PUBLIC_CMS_BASE_URL }}
+            NEXT_PUBLIC_CMS_TOKEN=${{ secrets.NEXT_PUBLIC_CMS_TOKEN }}
+            NEXT_PUBLIC_AGENT_ID=${{ secrets.NEXT_PUBLIC_AGENT_ID }}
+            NEXT_PUBLIC_FOODAPP_BASE_URL=${{ secrets.NEXT_PUBLIC_FOODAPP_BASE_URL }}
+            NEXT_PUBLIC_FOODAPP_API_KEY=${{ secrets.NEXT_PUBLIC_FOODAPP_API_KEY }}
+            NEXT_PUBLIC_CMS_SIDDHARTHA_TOKEN=${{ secrets.NEXT_PUBLIC_CMS_SIDDHARTHA_TOKEN }}
+            EOF
+
+            docker login registry.siddharthahospitality.com -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
+            docker pull registry.siddharthahospitality.com/damauli:${{ github.sha }}
+
+            docker stop damauli || true
+            docker rm damauli || true
+
+            docker run -d \
+              --name damauli \
+              --env-file /root/envs/damauli.env \
+              -p 3014:3000 \
+              registry.siddharthahospitality.com/damauli:${{ github.sha }}

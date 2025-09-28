@@ -154,7 +154,7 @@ const Page = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const galleryRes = await fetch(`${API_BASE_URL}/api/consumer/damauli_galleries_01`, {
+        const galleryRes = await fetch(`${API_BASE_URL}/api/consumer/damauli_galleries_01_01`, {
           headers: { 'Authorization': `Bearer ${API_AUTH_TOKEN}` }
         });
 

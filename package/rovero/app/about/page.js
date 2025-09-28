@@ -158,10 +158,10 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const [aboutRes, specialitiesRes] = await Promise.all([
-          fetch(`${API_BASE_URL}/api/consumer/damauli_aboutus_01`, {
+          fetch(`${API_BASE_URL}/api/consumer/damauli_aboutus_01_01`, {
             headers: { 'Authorization': `Bearer ${API_AUTH_TOKEN}` }
           }),
-          fetch(`${API_BASE_URL}/api/consumer/damauli_speciality`, {
+          fetch(`${API_BASE_URL}/api/consumer/damauli_speciality_01`, {
             headers: { 'Authorization': `Bearer ${API_AUTH_TOKEN}` }
           })
         ]);

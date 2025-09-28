@@ -12,7 +12,7 @@ const useWhatsAppNumber = () => {
     const fetchWhatsAppNumber = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`${API_BASE_URL}/api/consumer/damauli_whatsapp_contact`, {
+        const res = await fetch(`${API_BASE_URL}/api/consumer/damauli_whatsapp_contact_01`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

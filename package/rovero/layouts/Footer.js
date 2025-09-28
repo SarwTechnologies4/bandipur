@@ -20,7 +20,7 @@ const Footer = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/consumer/damauli_contact`,
+          `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/consumer/damauli_contact_01`,
           {
             headers: {
               'Authorization': `Bearer ${process.env.NEXT_PUBLIC_CMS_TOKEN}`

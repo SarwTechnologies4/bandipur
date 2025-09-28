@@ -64,7 +64,7 @@ const BlogDetailsPage = ({ params }) => {
         }
 
         const response = await fetch(
-          `${API_BASE_URL}/api/consumer/damauli_news/${id}`,
+          `${API_BASE_URL}/api/consumer/damauli_news_01/${id}`,
           {
             headers: {
               Authorization: `Bearer ${API_AUTH_TOKEN}`,

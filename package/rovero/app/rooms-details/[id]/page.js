@@ -32,7 +32,7 @@ const Page = () => {
             try {
                 // Fetch current room details
                 const roomResponse = await fetch(
-                    `${API_BASE_URL}/api/consumer/damauli_roomdetails_01/${roomId}`,
+                    `${API_BASE_URL}/api/consumer/damauli_roomdetails_01_01/${roomId}`,
                     {
                         headers: {
                             'Authorization': `Bearer ${API_AUTH_TOKEN}`
@@ -44,7 +44,7 @@ const Page = () => {
 
                 // Fetch all rooms
                 const allRoomsResponse = await fetch(
-                    `${API_BASE_URL}/api/consumer/damauli_roomdetails_01`,
+                    `${API_BASE_URL}/api/consumer/damauli_roomdetails_01_01`,
                     {
                         headers: {
                             'Authorization': `Bearer ${API_AUTH_TOKEN}`

@@ -37,7 +37,7 @@ const ContactPage = () => {
     const fetchContactData = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/consumer/damauli_contact`,
+          `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/consumer/damauli_contact_01`,
           {
             headers: {
               'Authorization': `Bearer ${process.env.NEXT_PUBLIC_CMS_TOKEN}`
@@ -80,7 +80,7 @@ const ContactPage = () => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/consumer/damauli_contactuses`,
+        `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/consumer/damauli_contactuses_01`,
         {
           method: 'POST',
           headers: {

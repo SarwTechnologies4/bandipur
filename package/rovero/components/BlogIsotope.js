@@ -16,7 +16,7 @@ const BlogIsotope = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/consumer/damauli_news`, {
+        const response = await fetch(`${API_BASE_URL}/api/consumer/damauli_news_01`, {
           headers: {
             Authorization: `Bearer ${API_AUTH_TOKEN}`,
           },

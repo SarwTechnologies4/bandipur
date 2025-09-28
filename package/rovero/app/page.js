@@ -63,7 +63,7 @@ const Page = () => {
     const fetchAboutData = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/consumer/damauli_startareas`,
+          `${API_BASE_URL}/api/consumer/damauli_startareas_01`,
           {
             headers: {
               Authorization: `Bearer ${API_AUTH_TOKEN}`,
@@ -109,7 +109,7 @@ const Page = () => {
     const fetchOffersData = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/consumer/damauli_offers`,
+          `${API_BASE_URL}/api/consumer/damauli_offers_01`,
           {
             headers: {
               Authorization: `Bearer ${API_AUTH_TOKEN}`,
@@ -137,7 +137,7 @@ const Page = () => {
     const fetchRoomsData = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/consumer/damauli_roomdetails_01`,
+          `${API_BASE_URL}/api/consumer/damauli_roomdetails_01_01`,
           {
             headers: {
               Authorization: `Bearer ${API_AUTH_TOKEN}`,

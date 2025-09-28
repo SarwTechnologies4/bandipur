@@ -15,7 +15,7 @@ import "@css/style.css";
 import "./globals.css";
 
 export const metadata = {
-  title: "SIDDHARTHA Hotel Damauli",
+  title: "SIDDHARTHA Village Bandipur",
   icons: {
     icon: "/images/logo/favicon.png",
   }

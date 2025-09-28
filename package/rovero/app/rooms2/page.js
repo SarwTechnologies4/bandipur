@@ -26,7 +26,7 @@ const page = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/consumer/damauli_roomdetails_01`, {
+        const response = await fetch(`${API_BASE_URL}/api/consumer/damauli_roomdetails_01_01`, {
           headers: {
             'Authorization': `Bearer ${API_AUTH_TOKEN}`
           }

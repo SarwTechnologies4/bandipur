@@ -32,7 +32,7 @@ const modifiedSliderProps = {
     const fetchHeroSections = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/consumer/damauli_herosections_01`,
+          `${API_BASE_URL}/api/consumer/damauli_herosections_01_01`,
           {
             headers: {
               Authorization: `Bearer ${API_AUTH_TOKEN}`,

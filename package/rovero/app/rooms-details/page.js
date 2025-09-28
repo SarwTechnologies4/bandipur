@@ -41,7 +41,7 @@ const Page = () => {
     const fetchRoom = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/consumer/damauli_roomdetails_01/${roomId}`,
+          `${API_BASE_URL}/api/consumer/damauli_roomdetails_01_01/${roomId}`,
           {
             headers: {
               'Authorization': `Bearer ${API_AUTH_TOKEN}`
